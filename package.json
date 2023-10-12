@@ -1,0 +1,56 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "build:tw": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "clean:tw": "rm -rf ./dist/styles.css",
+    "dev": "concurrently \"rollup -cw\" \"pnpm build:tw --watch\"",
+    "lint": "eslint \"**/*.ts*\""
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@types/uuid": "^9.0.1",
+    "concurrently": "^8.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "rollup": "^3.21.5",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.3.1",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "react-quill": "^2.0.0",
+    "tslib": "^2.5.2",
+    "uuid": "^9.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
