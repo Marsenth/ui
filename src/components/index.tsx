@@ -8,7 +8,6 @@ export * from './FileInput';
 export * from './Form';
 export * from './Input';
 export * from './List';
-export * from './Logo';
 export * from './NavBar/interfaces';
 export * from './NumberInput';
 export * from './PasswordInput';
