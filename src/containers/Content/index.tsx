@@ -1,9 +1,8 @@
 import { ReactElement } from 'react';
-import { MAIN_HEADER_PX, MAIN_HEADER_W } from '../Header/classNames';
-import { MAIN_CONTENT_MIN_H } from './classNames';
+import { MAIN_HEADER_W } from '../Header/classNames';
 
 export const Content = ({ children }: { children: ReactElement }) => (
-  <div className={`${MAIN_HEADER_W} ${MAIN_HEADER_PX} ${MAIN_CONTENT_MIN_H} m-auto`}>
+  <div className={`${MAIN_HEADER_W} px-0 sm:px-6 lg:px-8 m-auto`}>
     {children}
   </div>
 );

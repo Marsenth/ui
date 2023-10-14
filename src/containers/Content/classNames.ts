@@ -1,1 +1,0 @@
-export const MAIN_CONTENT_MIN_H = '';

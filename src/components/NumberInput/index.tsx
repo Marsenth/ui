@@ -1,4 +1,3 @@
-import { ChangeEvent } from 'react';
 import getClassName from '../../shared/helpers/className/getClassName';
 import { GhostButton } from '../buttons';
 import NumberInputProps from './interfaces';

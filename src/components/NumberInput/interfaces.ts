@@ -5,7 +5,7 @@ export interface NumberInputProps {
   decrement: FormEventHandler;
   handlerDisabled?: boolean;
   handleInputChange: Function;
-  onChange: Function;
+  onChange?: Function;
   increment: FormEventHandler;
   value: number | string;
 }

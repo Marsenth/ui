@@ -1,4 +1,3 @@
-import { MAIN_CONTENT_MIN_H } from "../../containers/Content/classNames";
 import getClassName from "../../shared/helpers/className/getClassName";
 
 export const Spinning = ({ className, containerClassName, containerSize, size }: any) => {
@@ -18,7 +17,7 @@ export const Spinning = ({ className, containerClassName, containerSize, size }:
         return 'h-full';
       case 'content':
       default:
-        return MAIN_CONTENT_MIN_H;
+        return '';
     }
   })();
 
