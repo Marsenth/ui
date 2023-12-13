@@ -7,6 +7,7 @@ import { checkValidate } from '../helpers/checkValidate';
 
 export function useForm(params: UseFormParams = { initialValues: {} }): UseFormProps {
   const { children, initialValues } = params as UseFormParams;
+  const [_children, _setChildren] = useState(children)
   const [invalids, updateInvalids] = useState({} as any);
   const [isValid, setIsValid] = useState(true);
   const [rules, updateRules] = useState(getDefaultsRules({ child: children }));
@@ -31,15 +32,29 @@ export function useForm(params: UseFormParams = { initialValues: {} }): UseFormP
     });
   }
 
-  const setValues = (newValues: Object) => updateValues({
-    ...values, ...newValues
-  });
+  const setValues = (newValues: { [key: string]: any }) => {
+    const formKeys = Object.keys(getDefaultsValues({ child: _children }));
+    const newValuesKeys = Object.keys(newValues);
+    const validsNewValues = {};
+
+    for (const formKey of formKeys) {
+      if (newValuesKeys.find((newValueKey) => newValueKey === formKey)) {
+        Object.assign(validsNewValues, { [formKey]: newValues[formKey] })
+      }
+    }
+
+    updateValues({
+      ...values, ...validsNewValues
+    });
+  }
 
   const validate = (clean = true) => checkValidate({
     clean, values, rules, updateValues, setIsValid, updateInvalids
   });
 
   return {
+    _children,
+    _setChildren,
     getValue,
     getValues,
     getValueError,

@@ -6,6 +6,8 @@ export interface UseFormParams {
 }
 
 export interface UseFormProps {
+  _children: ReactElement | ReactElement[] | undefined;
+  _setChildren: Function;
   getValue: Function;
   getValues: Function;
   getValueError: Function;
